@@ -29,6 +29,6 @@ jobs:
             git pull
             docker stop react-app
             docker rm react-app
-            docker build --build-arg VITE_GA_MSG="$COMMIT_MSG" -t react-app .
-            docker run -d -p 80:80 -e VITE_GA_MSG="$COMMIT_MSG" --name react-app react-app
+            docker build --build-arg VITE_GA_MSG="$COMMIT_MSG" -t react-app . --no-cache
+            docker run -d -p 80:80 --name react-app react-app
           EOF
